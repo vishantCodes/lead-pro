@@ -2,6 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Campaign;
+use App\Models\Commission;
+use App\Models\Lead;
+use App\Policies\CampaignPolicy;
+use App\Policies\CommissionPolicy;
+use App\Policies\LeadPolicy;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
@@ -24,6 +30,15 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureDefaults();
+        $this->registerPolicies();
+    }
+
+    /**
+     * Register policies.
+     */
+    protected function registerPolicies(): void
+    {
+        //
     }
 
     /**
